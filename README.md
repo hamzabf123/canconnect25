@@ -58,7 +58,7 @@ L'application est conçue pour être entièrement responsive et s'adapter à dif
 
 ## Développement Futur
 
--Ajout de plusieurs langues africaines pour une meilleure accessibilité et inclusion
--Créer une application mobile pour la plateforme.
--Intégration de nouveaux services utiles aux bénévoles (réservations de transport, hébergement, restauration, etc.)
--Amélioration de l’expérience utilisateur pour qu’un bénévole n’ait besoin que d’une seule application pour accomplir toutes ses missions, sans avoir recours à d'autres outils externes
+- **Ajout de plusieurs langues africaines pour une meilleure accessibilité et inclusion**
+- **Créer une application mobile pour la plateforme.**
+- **Intégration de nouveaux services utiles aux bénévoles (réservations de transport, hébergement, restauration, etc.)**
+- **Amélioration de l’expérience utilisateur pour qu’un bénévole n’ait besoin que d’une seule application pour accomplir toutes ses missions, sans avoir recours à d'autres outils externes**
