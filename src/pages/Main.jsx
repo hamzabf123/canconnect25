@@ -52,7 +52,7 @@ function Main() {
             <div className="titre-line titre-more-indented">WITHIN</div>
           </h1>
           <p className="description">
-            Be a part of the most exciting event of the year! Join us for a day filled with fun, excitement, and unforgettable experiences. Whether you're a fan, volunteer, or organizer, there's something for everyone.
+            Be a part of the most exciting event of the year! Join us for a day filled with fun, excitement, and unforgettable experiences. Whether you're a fan, volunteer, or organizer, there's something for everyone
           </p>
         </div>
         <div className="image-placeholder">
