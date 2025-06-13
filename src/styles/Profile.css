@@ -1,0 +1,12 @@
+.page-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    flex: 0 0 250px; /* Fixed width for the sidebar */
+  }
+  
+  .content {
+    flex: 1; /* Remaining space for the main content */
+    padding: 20px;
+  }

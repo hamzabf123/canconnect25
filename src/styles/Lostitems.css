@@ -1,0 +1,132 @@
+body, #root {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #f3f4f6;
+}
+
+.lost-main-bg {
+  min-height: 100vh;
+  width: 100%;
+  background: #f3f4f6;
+  display: flex;
+}
+
+.lost-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ajoute ceci */
+}
+
+.lost-inner {
+  flex: 1;
+  padding: 2rem;
+  background: #f3f4f6;
+  width: 100%; /* Ajoute ceci */
+  box-sizing: border-box;
+}
+
+.lost-add-btn {
+  padding: 0.75rem 1.5rem;
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px #0001;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lost-add-btn:hover {
+  background: #16a34a;
+}
+
+.lost-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem; /* Réduit le gap ici (ex: 1.2rem au lieu de 3rem) */
+  width: 100%; /* Ajoute ceci */
+}
+
+/* Card CANConnect */
+.card-can {
+  width: 200px;
+  min-height: 270px;
+  background: #fff;
+  border: 2px solid #f9f7f2; /* Bordure claire thème CAN */
+  border-radius: 18px;
+  box-shadow: 0 4px 18px 0 rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.18s;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.card-can:hover {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.13);
+  transform: translateY(-2px) scale(1.01);
+}
+.card-can-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px 4px 12px;
+}
+.card-can-id {
+  background: #f3f4f6;
+  color: #888;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.card-can-date {
+  color: #b0b0b0;
+  font-size: 12px;
+}
+.card-can-imgbox {
+  height: 100px; /* Agrandi */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #faf7ef;
+  border-radius: 12px;
+  margin: 0 auto 8px auto;
+}
+.card-can-img {
+  max-width: 90%;
+  max-height: 95px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #f9f7f2;
+}
+.card-can-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 0 12px 12px 12px;
+}
+.card-can-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00843d;
+  text-align: center;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+.card-can-desc {
+  color: #444;
+  font-size: 0.93rem;
+  text-align: center;
+  margin: 0;
+  overflow-y: auto;
+}

@@ -1,0 +1,726 @@
+:root {
+  /* Moroccan flag colors */
+  --morocco-red: #c1272d;
+  --morocco-green: #006233;
+  /* African-inspired */
+  --gold: #d4af37;
+  --sand: #f5e0b7;
+  --earth: #8b4513;
+  /* UI colors */
+  --text-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --background-light: #f9f7f2;
+  --accent-blue: #007bff;
+  --line-clr: var(--morocco-red);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+/* Layout */
+.page-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+  width: 100%;
+  padding: 24px;
+  align-items: flex-start !important;
+  grid-auto-flow: row dense;
+}
+
+/* Card Styles */
+.NextMatch, .Time, .infos, .Role {
+  border: none;
+  border-radius: 16px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.NextMatch:hover, .Time:hover, .infos:hover, .Role:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Moroccan Pattern Background */
+.NextMatch, .Time, .infos, .Role {
+  position: relative;
+}
+
+.NextMatch::before, .Time::before, .infos::before, .Role::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--morocco-red) 50%, var(--morocco-green) 50%);
+  background-size: 16px 100%;
+  border-radius: 8px 8px 0 0;
+  z-index: 1;
+}
+
+/* Card Animation */
+.card-animation {
+  animation: cardAppear 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.NextMatch {
+  animation-delay: 0.1s;
+}
+
+.Time {
+  animation-delay: 0.2s;
+}
+
+.infos {
+  animation-delay: 0.3s;
+}
+
+.Role {
+  animation-delay: 0.4s;
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Headers */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.card-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-left: 40px;
+}
+
+/* Moroccan-themed Icons */
+.morocco-flag-icon, .time-icon, .info-icon, .role-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.morocco-flag-icon {
+  background-color: var(--morocco-red);
+  box-shadow: 0 0 0 2px var(--morocco-green);
+}
+
+.morocco-flag-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background-color: var(--morocco-green);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.time-icon {
+  background-color: var(--gold);
+  position: relative;
+}
+
+.time-icon::before, .time-icon::after {
+  content: '';
+  position: absolute;
+  background-color: var(--text-dark);
+}
+
+.time-icon::before {
+  width: 1px;
+  height: 12px;
+  top: 7px;
+  left: 16px;
+  transform-origin: bottom;
+  transform: rotate(-30deg);
+}
+
+.time-icon::after {
+  width: 1px;
+  height: 8px;
+  top: 10px;
+  left: 16px;
+  transform-origin: bottom;
+  transform: rotate(60deg);
+}
+
+.info-icon {
+  background-color: var(--morocco-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.info-icon::after {
+  content: "i";
+  font-style: italic;
+  color: white;
+}
+
+.role-icon {
+  background-color: var(--earth);
+  position: relative;
+}
+
+.role-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 8px;
+  border: 2px solid white;
+  border-radius: 50% 50% 0 0;
+}
+
+.role-icon::after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 2px;
+  height: 8px;
+  background-color: white;
+}
+
+/* Match Details Section */
+.match-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.match-details h2 {
+  font-size: 1.4rem;
+  color: var(--morocco-red);
+  margin-bottom: 8px;
+}
+
+.venue-info {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+.location-icon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 0;
+  top: 3px;
+  border-radius: 50%;
+  background-color: var(--morocco-green);
+  opacity: 0.8;
+}
+
+.location-icon::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 3px 0;
+  border-style: solid;
+  border-color: var(--morocco-green) transparent transparent;
+}
+
+.venue-info p {
+  margin: 4px 0;
+  font-size: 1rem;
+}
+
+.map-link {
+  margin-top: 10px;
+}
+
+.map-link a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--morocco-green);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid var(--morocco-green);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.map-link a:hover {
+  background-color: var(--morocco-green);
+  color: white;
+}
+
+/* Time Details Section */
+.time-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.date-info {
+  background-color: rgba(212, 175, 55, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid var(--gold);
+}
+
+.date-info p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.countdown-container {
+  margin-top: 10px;
+}
+
+.countdown-container h3 {
+  text-align: center;
+  color: var(--morocco-red);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.countdown {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+}
+
+.countdown-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--morocco-red);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-label {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: var(--text-dark);
+}
+
+/* Info Content Section */
+.info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dress-code, .essentials, .optional-items {
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.dress-code {
+  background-color: rgba(0, 98, 51, 0.1);
+  border-left: 4px solid var(--morocco-green);
+}
+
+.essentials {
+  background-color: rgba(193, 39, 45, 0.08);
+  border-left: 4px solid var(--morocco-red);
+}
+
+.optional-items {
+  background-color: rgba(212, 175, 55, 0.1);
+  border-left: 4px solid var(--gold);
+}
+
+.info-content h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+}
+
+.items-list li {
+  padding: 6px 0;
+  padding-left: 25px;
+  position: relative;
+  animation: itemAppear 0.5s ease forwards;
+  opacity: 0;
+}
+
+.items-list li:nth-child(1) { animation-delay: 0.1s; }
+.items-list li:nth-child(2) { animation-delay: 0.2s; }
+.items-list li:nth-child(3) { animation-delay: 0.3s; }
+.items-list li:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes itemAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.check-icon, .plus-icon {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-icon {
+  background-color: var(--morocco-green);
+}
+
+.check-icon::before {
+  content: '';
+  width: 6px;
+  height: 3px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg);
+}
+
+.plus-icon {
+  background-color: var(--gold);
+}
+
+.plus-icon::before, .plus-icon::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+}
+
+.plus-icon::before {
+  width: 8px;
+  height: 2px;
+  top: 7px;
+  left: 4px;
+}
+
+.plus-icon::after {
+  width: 2px;
+  height: 8px;
+  top: 4px;
+  left: 7px;
+}
+
+/* Role Content Section */
+.role-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.role-content h3 {
+  color: var(--earth);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.responsibilities-list {
+  list-style: none;
+  padding: 0;
+}
+
+.responsibility-item {
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  background-color: var(--sand);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.responsibility-item:hover {
+  transform: translateX(5px);
+  background-color: rgba(212, 175, 55, 0.2);
+}
+
+.importance-note {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: rgba(193, 39, 45, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid var(--morocco-red);
+}
+
+.importance-note p {
+  font-weight: 500;
+  text-align: center;
+  color: var(--morocco-red);
+}
+
+/* Compacte la carte Time et améliore le style du countdown */
+.Time.card-animation {
+  padding: 1rem 1.2rem 0.7rem 1.2rem !important;
+  min-height: unset !important;
+  height: auto !important;
+  margin-bottom: 1.2rem !important;
+  border-bottom: 4px solid #d90429 !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+  display: block !important;
+}
+
+.Time .card-header {
+  margin-bottom: 0.5rem !important;
+  padding-bottom: 0 !important;
+}
+
+.Time .time-details {
+  margin-bottom: 0 !important;
+  gap: 0.5rem !important;
+}
+
+.Time .date-info {
+  background: #f9f6f2;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 0.3rem !important;
+  font-size: 1rem;
+}
+
+.Time .countdown-container {
+  margin-top: 0.2rem !important;
+  text-align: center;
+}
+
+.Time .countdown-container h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: #d90429;
+  font-weight: bold;
+}
+
+.Time .countdown {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.Time .countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Time .countdown-value {
+  background: #d90429;
+  color: #fff;
+  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.Time .countdown-label {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Media Queries */
+@media (max-width: 1100px) {
+  .content-container {
+    grid-template-columns: 1fr 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .countdown-item {
+    width: 50px;
+  }
+  
+  .countdown-value {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 100;
+  }
+  
+  .content-container {
+    grid-template-columns: 1fr;
+    /* grid-template-rows: repeat(4, auto); */
+    padding: 16px;
+    padding-bottom: 80px; /* Space for the sidebar at bottom */
+    gap: 20px;
+  }
+  
+  .NextMatch, .Time, .infos, .Role {
+    padding: 1.2rem;
+    height: auto;
+  }
+  
+  .card-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .countdown {
+    justify-content: space-around;
+  }
+  
+  .countdown-item {
+    width: 45px;
+  }
+  
+  .countdown-value {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .countdown-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 10px;
+    padding-bottom: 80px;
+    gap: 15px;
+  }
+  
+  .NextMatch, .Time, .infos, .Role {
+    padding: 1rem;
+  }
+  
+  .card-header h1 {
+    font-size: 1.3rem;
+    margin-left: 35px;
+  }
+  
+  .morocco-flag-icon, .time-icon, .info-icon, .role-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .match-details h2 {
+    font-size: 1.2rem;
+  }
+  
+  .countdown-item {
+    width: 40px;
+  }
+  
+  .countdown-value {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .countdown-label {
+    font-size: 0.6rem;
+  }
+  
+  .info-content h3, .role-content h3 {
+    font-size: 1rem;
+  }
+}
