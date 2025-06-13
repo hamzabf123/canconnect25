@@ -1,22 +1,33 @@
 # CanConnect25 - Documentation du Projet
 
 ## Aperçu
-CanConnect25 est une application frontend React qui fournit des fonctionnalités d'authentification (connexion et inscription) avec une interface utilisateur moderne et responsive. L'application est conçue pour communiquer avec un backend Java JEE via des API REST.
+
+Bienvenue sur CanConnect25, une plateforme pensée pour faciliter et améliorer la coordination entre les bénévoles, les organisateurs et les fans lors d’événements tels que la CAN 2025.
+
+Ce projet a été réalisé par des étudiants en 3ème année de licence en informatique . Il vise à répondre à des problématiques concrètes liées à l'organisation logistique lors des grands événements sportifs — en mettant un accent particulier sur l’expérience des bénévoles. Cette plateforme propose un point d’accès centralisé aux informations essentielles : plannings, rôles, lieux d’affectation, etc.., à travers une interface simple et intuitive.
 
 ## Fonctionnalités
+
 - Page de connexion avec validation des formulaires
 - Processus d'inscription en plusieurs étapes (informations personnelles, professionnelles et du compte)
 - Validation complète des formulaires
 - Interface utilisateur moderne et responsive
 - Intégration API avec axios pour la communication avec le backend
-- Gestion des tokens d'authentification
+- Affectation des rôles pour les bénévoles
 - Routes protégées nécessitant une authentification
+- Affichage des horaires et événements (matchs, réunions)
+- Créer des missions et affecter des volontaires à un organisateur.
 
 ## Technologies Utilisées
+
 - React (JavaScript standard)
-- CSS standard (sans frameworks comme Tailwind CSS)
+- CSS standard
+- Tailwind CSS
 - Axios pour les requêtes API
 - React Router pour la navigation
+- REST API 
+- Java avec Jakarta EE (anciennement Javax)
+- MYSQL
 
 ## Structure du Projet
 ```
@@ -37,98 +48,17 @@ canconnect25_js/
 └── README.md                # Documentation du projet
 ```
 
-## Installation et Démarrage
-
-### Prérequis
-- Node.js (version 14 ou supérieure)
-- npm
-
-### Installation
-1. Clonez le dépôt :
-```bash
-git clone <url-du-dépôt>
-cd canconnect25_js
-```
-
-2. Installez les dépendances :
-```bash
-npm install
-```
-
-### Démarrage du serveur de développement
-```bash
-npm start
-```
-L'application sera accessible à l'adresse http://localhost:3000
-
-## Configuration de l'API Backend
-L'application est configurée pour communiquer avec un backend Java JEE. Par défaut, l'URL de base est définie sur `http://localhost:8080/api`. Vous pouvez modifier cette URL dans le fichier `src/services/api.js` pour correspondre à votre environnement.
-
-## Points d'API
-L'application utilise les points d'API suivants pour communiquer avec le backend :
-
-### Authentification
-- **POST /auth/login** : Connexion utilisateur
-- **POST /auth/register** : Inscription complète
-- **POST /auth/register/account** : Inscription - Informations du compte
-- **POST /auth/register/personal** : Inscription - Informations personnelles
-- **POST /auth/register/professional** : Inscription - Informations professionnelles
-
-### Utilisateur
-- **GET /users/profile** : Obtenir le profil de l'utilisateur
-- **PUT /users/profile** : Mettre à jour le profil de l'utilisateur
-- **POST /users/change-password** : Changer le mot de passe
-
-## Validation des Formulaires
-L'application implémente une validation complète des formulaires pour garantir que les données saisies par l'utilisateur sont valides avant d'être envoyées au backend. Les validations incluent :
-
-### Connexion
-- Nom d'utilisateur requis
-- Mot de passe requis
-
-### Inscription - Informations Personnelles
-- Prénom requis
-- Nom requis
-- Date de naissance requise
-- Nationalité requise
-- Numéro de téléphone requis
-- Adresse requise
-- Contact d'urgence requis
-
-### Inscription - Informations Professionnelles
-- Niveau d'éducation requis
-- Occupation actuelle requise
-- Langues parlées requises
-- Compétences pertinentes requises
-- Disponibilité pendant AFCAN 2025 requise
-
-### Inscription - Informations du Compte
-- Nom d'utilisateur requis
-- Email requis et format valide
-- Confirmation d'email requise et correspondant à l'email
-- Mot de passe requis et minimum 8 caractères
-- Confirmation de mot de passe requise et correspondant au mot de passe
 
 ## Responsive Design
+
 L'application est conçue pour être entièrement responsive et s'adapter à différentes tailles d'écran :
 - **Desktop** : Affichage complet avec mise en page horizontale
 - **Tablette** : Adaptation de la mise en page pour les écrans moyens
 - **Mobile** : Réorganisation verticale pour les petits écrans
 
-## Personnalisation
-Vous pouvez personnaliser l'apparence de l'application en modifiant les variables CSS dans le fichier `src/styles/auth.css`. Les principales variables de couleur sont définies au début du fichier.
-
 ## Développement Futur
-Voici quelques suggestions pour le développement futur de l'application :
-- Implémentation de l'authentification sociale (Google, Facebook)
-- Ajout d'une fonctionnalité de récupération de mot de passe
-- Amélioration de la gestion des erreurs API
-- Ajout de tests unitaires et d'intégration
-- Implémentation d'un tableau de bord utilisateur complet
 
-## Remarques pour le Développement Backend
-Pour les développeurs backend travaillant sur l'intégration avec cette application frontend :
-- Assurez-vous que les points d'API correspondent à ceux utilisés dans l'application
-- Implémentez l'authentification basée sur les tokens JWT
-- Configurez CORS pour permettre les requêtes depuis le frontend
-- Validez les données reçues côté serveur pour une sécurité supplémentaire
+-Ajout de plusieurs langues africaines pour une meilleure accessibilité et inclusion
+-Créer une application mobile pour la plateforme.
+-Intégration de nouveaux services utiles aux bénévoles (réservations de transport, hébergement, restauration, etc.)
+-Amélioration de l’expérience utilisateur pour qu’un bénévole n’ait besoin que d’une seule application pour accomplir toutes ses missions, sans avoir recours à d'autres outils externes
